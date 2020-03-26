@@ -7,7 +7,10 @@ It will automatically convert all Database Tables into PHP Classes. It will also
 
 ## Explanaiton 
 
-See the following Graphic for a better understanding of how the library works. 
+See the following example for a better understanding of how the library works. 
+
+![Image description](http://viewport.at/projects/mysql2c/images/concept.jpg)
+
 
 ## Installation 
 
