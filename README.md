@@ -19,10 +19,10 @@ All you have to do is adjust the config.php file with your database connection p
 
 ## Initialization  
 
-Before you can use mysql2c it has to create the PHP Class Files first. To do this call $mysql2c->createClasses(); 
+Before you can use mysql2c it has to create the PHP Class Files first. To do this call `$mysql2c->createClasses();` 
 This will create all neccessary class files in /classes folder, and create an autoloader for it. You only should call this once, or if you applied some changes to your database structure. 
 
 ## Loading Data 
 
-At the start up of your application call $mysql2c->loadData(); 
+At the start up of your application call `$mysql2c->loadData();`
 This will load all entries from your Database into a array for each table. 
