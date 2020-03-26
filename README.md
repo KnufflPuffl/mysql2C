@@ -1,4 +1,4 @@
-# mySQL2C
+# mysql2c
 
 ## How does it work ? 
 
