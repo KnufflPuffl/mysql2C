@@ -13,6 +13,10 @@ See the following Graphic for a better understanding of how the library works.
 
 simply require the provided autoloader.php file. 
 
+## Configuration  
+
+All you have to do is adjust the config.php file with your database connection parameters. 
+
 ## Initialization  
 
 Before you can use mysql2c it has to create the PHP Class Files first. To do this call $mysql2c->createClasses(); 
