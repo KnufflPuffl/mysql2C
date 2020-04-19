@@ -29,3 +29,27 @@ This will create all neccessary class files in /classes folder, and create an au
 
 At the start up of your application call `$mysql2c->loadData();`
 This will load all entries from your Database into a array for each table. 
+
+## Accessing Data 
+
+use the mysql2c function `$mysql2c->getData(String classname);` which will return an array of all data within the supplied classname / database table name. 
+
+## Accessing specific Data 
+
+To access a specific object use `$mysql2c->getData(String classname, int primary_key);` this will return the object with supplied primary key of the given class. 
+
+In this object all the properties are accessable using => operator. For example to get the value of property name for object person with primary key 1 you would use this command: 
+
+`$name = $mysql2c->getData('person',1)->name;`
+
+## Updating Data 
+
+To update a value use setData method like this `$mysql2c->setData(String classname, int primary_key, String attribute_name, String value);` 
+
+For example to update the Name of Person with primary key 1, you would write the command like this: 
+
+`$mysql2c->setData('person',1,'name','Mustermann');`
+
+## Delete an entry  
+
+To delete a data entry use deleteData method like this  `$mysql2c->deleteData(String classname, int primary_key);`
