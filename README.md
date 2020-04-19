@@ -2,8 +2,8 @@
 
 ## How does it work ? 
 
-mysql2c provides a simple to use Interface, in order to obtain and update Database Information for a MySQL database (CRUD Operations). 
-It will automatically convert all Database Tables into PHP Classes. It will also provide an object oriented array of all the Database data in each class. It can then be used to manipulate the data from an object, and the library will automatically update the Data in the corresponding database entry, which will save you a tremendous amount of time, because no more SQL queries are needed. 
+mysql2c provides a simple to use iterface, in order to obtain and update database information for a MySQL database (CRUD Operations). 
+It will automatically convert all database tables into PHP Classes. It will also provide an object oriented array of all the database data of each class. It can then be used to manipulate the data from an object, and the library will automatically update the data in the corresponding database entry, which will save you a tremendous amount of time, because no more SQL queries are needed. 
 
 ## Explanaiton 
 
