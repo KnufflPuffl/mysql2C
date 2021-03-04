@@ -60,14 +60,88 @@ For example to update the Name of Person with primary key 1, you would write the
 To delete a data entry use deleteData method like this  `$mysql2php->deleteData(String classname, int primary_key);`
 
 
-# mysql2j
+# mysql2j (JavaScript Client - Experimental)
 
 ## mysql2j is a Javascript library which can be used in a very similar way 
 
---> mysql2j requires that you have also installed mysql2c, as it is using mysql2c's API in the exact same way using AJAX. 
+Dependencies: mysql2php, jQuery 
+--> mysql2j requires that you have also installed mysql2php, as it is using mysql2php's API in the exact same way using AJAX. It also requires jQuery > 3.0 
+
+Experimental Status: depending on data amount mysql2j might be slow - especially on low memory end devices (data in Javascript is stored on the client), next version of mysql2j will include more options for only loading the required data. It should work quite fast for regular data heavy applications though. You also have the option to do regular AJAX requests and use mysql2php only on the server side if you run into performance issues. Future versions of mysql2j will also include option to use indexedDB (hardware storage) instead of random access memory. 
 
 
+## Installation 
 
+include the mysql2j.js file, and its config file in your web application (after you have included jQuery): 
+
+`<script type="text/javascript" src="/mysql2j/mysql2j-config.js"></script>`
+`<script type="text/javascript" src="/mysql2j/mysql2j.min.js"></script>`
+
+
+## Configuration  
+
+All you have to do is adjust the mysql2j-config.js file.
+You only need to change the backendurl variable to the URL where your mysql2php library is stored (and accessible using any common webserver). 
+
+mysql2j-config.js example: 
+`backendurl = "http://localhost/mysql2php/"; `
+
+
+## Initialization  
+
+--> this does the exact same thing as described above, but you can also do it now using Javascript directly:
+
+` mysql2j.install(); `
+
+
+## Loading Data 
+
+At the start up of your application call `mysql2j.loadData();`
+This will load all entries from your Database into a array for each table. 
+
+Note: The reason why it is not included directly in autoload is, because there might be pages on which you might not need any data from your database. 
+You should only call this function, at the first startup of your application / loadup.  
+
+
+## Accessing Data 
+
+`mysql2j.getData(String classname);` which will return an array of all data within the supplied classname / database table name. 
+
+
+## Accessing specific Data 
+
+To access a specific object use `mysql2j.getData(String classname, int primary_key);` this will return the object with supplied primary key of the given class. 
+
+In this object all the properties are accessable using .operator For example to get the value of property name for object person with primary key 1 you would use this command: 
+
+`var name = mysql2j.getData('person',1).name;`
+
+## Updating Data 
+
+To update a value use setData method like this `mysql2j.setData(String classname, int primary_key, String attribute_name, String value);` 
+
+For example to update the Name of Person with primary key 1, you would write the command like this: 
+
+`mysql2j.setData('person',1,'name','Mustermann');`
+
+
+## Delete an entry  
+
+To delete a data entry use deleteData method like this  `mysql2j.deleteData(String classname, int primary_key);`
+
+
+## Data Ensurance 
+
+As you might have noticed, mysql2j doesn't yet provide any kind of success or error callbacks - it simply sends out the requests to the server. 
+Therefore, (right now) it is not guaranteed that the server will process the request correctly (server might be offline, or some other server side error could happen, timeout errors or something else).
+
+The advantage on the other hand is, that the usage of mysql2j currently is very simple, without the need to mess with callbacks/Promises. 
+Therefore it is planned that next versions of mysql2j will include an option which will allow you to use callbacks or promises, for better data ensurance. 
+
+
+## Experimental Status
+
+All of mysl2j features are currently still in experimental state - if you discover any issue, please let us know. 
 
 
 
