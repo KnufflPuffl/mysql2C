@@ -22,13 +22,18 @@ All you have to do is adjust the config.php file with your database connection p
 
 ## Initialization  
 
-Before you can use mysql2c it has to create the PHP Class Files first. To do this call `$mysql2c->createClasses();` 
+Before you can use mysql2c it has to create the PHP Class Files first. 
+To do this open the installation.php file in your browser, or call `$mysql2c->install();` 
+
 This will create all neccessary class files in /classes folder, and create an autoloader for it. You only should call this once, or if you applied some changes to your database structure. 
 
 ## Loading Data 
 
 At the start up of your application call `$mysql2c->loadData();`
 This will load all entries from your Database into a array for each table. 
+
+Note: The reason why it is not included directly in autoload is, because there might be pages on which you might not need any data from your database. 
+You should only call this function, at the first startup of your application / loadup.  
 
 ## Accessing Data 
 
@@ -53,3 +58,16 @@ For example to update the Name of Person with primary key 1, you would write the
 ## Delete an entry  
 
 To delete a data entry use deleteData method like this  `$mysql2c->deleteData(String classname, int primary_key);`
+
+
+# mysql2j
+
+## mysql2c also includes a Javascript library called mysql2j which can be used in a very similar way 
+
+--> mysql2j requires that you have also installed mysql2c, as it is using mysql2c's API in the exact same way using AJAX. 
+
+
+
+
+
+
