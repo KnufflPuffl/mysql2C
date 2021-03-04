@@ -62,7 +62,7 @@ To delete a data entry use deleteData method like this  `$mysql2php->deleteData(
 
 # mysql2j
 
-## mysql2c also includes a Javascript library called mysql2j which can be used in a very similar way 
+## mysql2j is a Javascript library which can be used in a very similar way 
 
 --> mysql2j requires that you have also installed mysql2c, as it is using mysql2c's API in the exact same way using AJAX. 
 
